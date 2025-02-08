@@ -75,11 +75,11 @@ async def sendMsg(channel, coin):
 
         text = f"{name}\n当前市值：{market_value}\n当前价格：${price}\n当前时间：{now_time}\n发币时间：{open_time}\n当前持有人数：{holder_count}\n最近5分钟正向交易量（volume）：{volume_5m}\n最近5分钟买入交易量（volume）：{buy_volume_5m}\n最近5分钟卖出交易量（volume）：{sell_volume_5m}\nToken：{token}\nGMGN地址：{url}"
 
-        if channel == '1b': # 1b
+        if channel == '1b':
             await bot.send_message(text=text, chat_id=6112223515)
-        if channel == '100m': # 100m
+        if channel == '100m':
             await bot.send_message(text=text, chat_id=6112223515)
-        if channel == '10m': # 10m
+        if channel == '10m':
             await bot.send_message(text=text, chat_id=6112223515)
 
 def postPage():
