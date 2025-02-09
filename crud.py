@@ -28,3 +28,6 @@ def create_coin(db: Session, coin: schemas.CreateCoin):
         # db.refresh(db_data)
         return db_data
 
+def get_coin_by_id(db: Session, coin_id: str):
+    coin = db.query(models.Coin).filter(models.Coin.id == coin_id).first()
+    return coin

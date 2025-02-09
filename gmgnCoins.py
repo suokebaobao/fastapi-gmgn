@@ -30,6 +30,9 @@ def getInfo():
 def saveInfo(data):
     db = SessionLocal()
     for coin in data:
-        data = crud.create_coin(db=db, coin=coin)
-        db.commit()
-    return {"data": ''}
+        get_coin = crud.get_coin_by_id(db=db, coin_id=coin['id'])
+        if get_coin == None:
+            break
+        else:
+            data = crud.create_coin(db=db, coin=coin)
+            db.commit()
