@@ -12,7 +12,7 @@ from database import Base, engine
 class Coin(Base):
     __tablename__ = 'coin'  # 数据表的表名
 
-    id = Column(Integer, primary_key=True, comment='主键')
+    id = Column(String(50), primary_key=True, comment='主键')
     address = Column(String(50), nullable=True, comment='address')
     base_address = Column(String(50), nullable=True, comment='base_address')
     open_timestamp = Column(String(10), nullable=True, comment='open_timestamp')

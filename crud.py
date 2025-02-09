@@ -31,3 +31,8 @@ def create_coin(db: Session, coin: schemas.CreateCoin):
 def get_coin_by_id(db: Session, coin_id: str):
     coin = db.query(models.Coin).filter(models.Coin.id == coin_id).first()
     return coin
+
+def get_coin_base_address(db: Session, quote_symbol: str, slice: int):
+    coins = (db.query(models.Coin.base_address).order_by(models.Coin.created_at.desc(), models.Coin.id)
+             .filter(models.Coin.quote_symbol == quote_symbol).slice(10*slice-10,10*slice).all())
+    return [address[0] for address in coins]
